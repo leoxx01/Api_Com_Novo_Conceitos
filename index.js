@@ -1,69 +1,64 @@
-var express = require("express")
-var fs = require("fs")
+import express from "express"
+import {promises} from "fs"
+import winston from "winston"
+import routes from "./routes/accounts.js"
+import cors from "cors"
 
-var app = express()
+const app = express()
+app.use(cors()) //liberando cors para todos
+
+//const routes = require("./routes/accounts.js")//Importando routes
+
+const acc = "accounts.json"
+
+//logs
+const {combine,timestamp,level,label,printf} = winston.format
+const myformat = printf(({level,message,label,timestamp})=>{ //Definindo o formato
+    return `${timestamp} [${label}] ${level}: ${message}`
+})
+global.logger = winston.createLogger({ //Uma variavel literalmente global uso ela em accounts tmb
+    level:"silly",
+    transports:[
+        new (winston.transports.Console)(),
+        new (winston.transports.File)({filename: "my-bank.log"})
+    ],
+    format: combine(
+        label({label: "my-bank-api"}),  // Definindo a label
+        timestamp(), //Pegando Time stanp 
+        myformat //passando o formato desejado 
+    )
+})
 
 app.use(express.json())//Informando que iremos utilizar objetos json para tratar as reqs
+app.use("/account", routes)
 
-app.post('/account',(req,res)=>{
-    let account = req.body //Pegando tudo que vem no body no caso dois parametros name e balance
-    fs.readFile("accounts.json","utf-8",(err,data) =>{//Lendo o arquivo accounts.json e pegando seu conteudo com o data
-        if(!err){//Se ele não der algum erro 
-            try{
-                let datajson = JSON.parse(data) //converto o data para json
+//Outra forma de fazer de forma assincrona 
 
-                account = {id:datajson.nextid,...account} //Setando o id e pegando o name e balance e setando em um objeto
-
-                datajson.accounts.push(account)//Colocando esse objeto dentro do array accounts que esta presente no arquivo accounts.json
-
-                datajson.nextid++ //Aumentando o ID
-
-                fs.writeFile("accounts.json", JSON.stringify(datajson),(err)=>{ //Reescrevendo o arquivo accounts.json com o novo valor no array
-                    if(!err){//Se n tiver erro eu retorno 200
-                        res.status(200).send("Deu certo")
-                    }else{
-                        res.status(400).send("Erro na escrita")  
-                    }
-                })
-                console.log(datajson)
-            }catch(err){
-                res.status(400).send("Erro no parseamento"+err)
+     app.listen(3000,async()=>{
+        try{
+            await promises.readFile(acc,"utf8")
+            logger.info("Online") 
+        }catch(err){
+            const initialJson = {
+                nextid: 1,
+                accounts:[]
             }
-        }else{//se o bloco try tiver algum erro passa por aqui e printa o erro no console
-            res.status(400).send("Erro na leitura"+err)
+            promises.writeFile(acc, JSON.stringify(initialJson)).catch(err=>console.log(err))
         }
-    })
-})
+    })  
 
-app.get("/account",(req,res)=>{
-    fs.readFile("accounts.json","utf8",(err,data)=>{
-        if(!err){
-            let datajson = JSON.parse(data)//Atribuindo ao datajson para n modificar o data
-            delete datajson.nextid //Removendo o next id
-            res.status(200).send(datajson)
-        }else{
-            res.status(400).send({error: err.message})
-        }
-    })
-})
+//Promisse 
 
-app.listen(3000,()=>{
+/* app.listen(3000,()=>{
     //Criando a estruta json para quando não tivermos a file accounts.json, para cria-lo de acordo com oque foi estipulado 
-    try{
-        fs.readFile("accounts.json","utf8",(err,data) =>{
-            if(err){
-                const initialJson = {
-                    nextid: 1,
-                    accounts:[]
-                }
-                fs.writeFile("accounts.json", JSON.stringify(initialJson),(err)=>{console.log(err)})
+        //catch para pegar o erro // e then para pegar algo que retone e tratar
+        fs.readFile(acc,"utf8").catch(err =>{
+            const initialJson = {
+                nextid: 1,
+                accounts:[]
             }
+            fs.writeFile(acc, JSON.stringify(initialJson)).catch(err=>console.log(err))
         })
-        console.log("Online")
-    }catch(err){
-        if(err){
-            res.status(400).send(err)
-        }
-
-    }
-})
+        console.log("Online2") 
+        //Aula 08 tem a forma de callback
+})  */

@@ -1,0 +1,62 @@
+2020-06-04T14:09:54.690Z [my-bank-api] info: Online
+2020-06-04T14:09:59.220Z [my-bank-api] info: Online
+2020-06-04T14:11:33.758Z [my-bank-api] info: Online
+2020-06-04T14:13:15.469Z [my-bank-api] info: Online
+2020-06-04T14:13:54.445Z [my-bank-api] info: Online
+2020-06-04T14:13:59.356Z [my-bank-api] info: A conta [object Object] foi criada
+2020-06-04T14:14:10.314Z [my-bank-api] info: Online
+2020-06-04T14:14:24.477Z [my-bank-api] info: Online
+2020-06-04T14:14:27.266Z [my-bank-api] info: A conta 15 foi criada
+2020-06-04T14:14:34.822Z [my-bank-api] info: Online
+2020-06-04T14:14:55.506Z [my-bank-api] info: Online
+2020-06-04T14:14:58.436Z [my-bank-api] info: Online
+2020-06-04T14:16:03.635Z [my-bank-api] info: Online
+2020-06-04T14:16:06.977Z [my-bank-api] info: A conta {"id":16,"name":"Leonardo c","balance":600} foi criada
+2020-06-04T14:16:31.688Z [my-bank-api] info: Online
+2020-06-04T14:17:01.119Z [my-bank-api] info: Online
+2020-06-04T14:17:08.246Z [my-bank-api] info: Online
+2020-06-04T14:17:49.032Z [my-bank-api] info: Online
+2020-06-04T14:18:23.898Z [my-bank-api] info: Online
+2020-06-04T14:18:49.188Z [my-bank-api] info: Online
+2020-06-04T14:19:13.666Z [my-bank-api] info: Online
+2020-06-04T14:19:20.705Z [my-bank-api] info: Online
+2020-06-04T14:19:55.696Z [my-bank-api] info: Online
+2020-06-04T14:20:10.878Z [my-bank-api] info: Online
+2020-06-04T14:20:17.349Z [my-bank-api] info: Online
+2020-06-04T14:20:50.435Z [my-bank-api] info: Online
+2020-06-04T14:20:56.410Z [my-bank-api] info: Online
+2020-06-04T14:21:14.596Z [my-bank-api] info: Online
+2020-06-04T14:21:19.820Z [my-bank-api] info: Online
+2020-06-04T14:22:25.326Z [my-bank-api] info: Online
+2020-06-04T14:22:33.963Z [my-bank-api] info: Online
+2020-06-04T14:22:52.104Z [my-bank-api] info: Online
+2020-06-04T14:23:02.290Z [my-bank-api] info: Online
+2020-06-04T14:23:54.482Z [my-bank-api] info: Online
+2020-06-04T14:24:27.236Z [my-bank-api] info: Online
+2020-06-04T14:24:51.838Z [my-bank-api] info: Online
+2020-06-04T14:24:58.452Z [my-bank-api] info: Online
+2020-06-04T14:25:14.467Z [my-bank-api] info: Online
+2020-06-04T14:25:23.917Z [my-bank-api] info: Online
+2020-06-04T14:25:33.446Z [my-bank-api] info: Online
+2020-06-04T14:25:51.933Z [my-bank-api] info: Online
+2020-06-04T14:26:00.891Z [my-bank-api] info: Online
+2020-06-04T14:26:04.566Z [my-bank-api] info: Online
+2020-06-04T14:26:13.407Z [my-bank-api] error: GET/account/saldo/:id - Foi checado o saldo da conta {"id":8,"name":"aldo14","balance":8990.78}
+2020-06-04T14:26:23.355Z [my-bank-api] info: POST/account/deposit - Deposito para conta {"id":8,"name":"aldo14","balance":9990.78}
+2020-06-04T14:26:31.679Z [my-bank-api] info: POST/account/saque - Saque da conta {"id":8,"name":"aldo14","balance":8990.78}
+2020-06-04T14:26:31.683Z [my-bank-api] error: POST/account/saque - Cannot set headers after they are sent to the client
+2020-06-04T14:26:50.451Z [my-bank-api] info: POST/account - A conta {"id":17,"name":"Leonardo c","balance":600} foi criada
+2020-06-04T14:26:58.864Z [my-bank-api] info: DELETE/account/:id - Usuario deletado [{"id":1,"name":"Leonardo c","balance":600},{"id":2,"name":"Leonardo c","balance":600},{"id":4,"name":"aldo14","balance":10000.78},{"id":5,"name":"Leonardo c","balance":600},{"id":6,"name":"Leonardo c","balance":600},{"id":7,"name":"Leonardo c","balance":600},{"id":8,"name":"aldo14","balance":8990.78},{"id":12,"name":"Leonardo c","balance":600},{"id":13,"name":"Leonardo c","balance":600},{"id":14,"name":"Leonardo c","balance":600},{"id":15,"name":"Leonardo c","balance":600},{"id":16,"name":"Leonardo c","balance":600},{"id":17,"name":"Leonardo c","balance":600}]
+2020-06-04T14:28:14.877Z [my-bank-api] info: PUT/account/- Conta atualizada{"id":4,"name":"aldo14","balance":10000.78}
+2020-06-04T14:28:23.507Z [my-bank-api] info: GET/account/:id - Pesquisa sobre [] 
+2020-06-04T14:28:28.615Z [my-bank-api] info: GET/account/:id - Pesquisa sobre [{"id":1,"name":"Leonardo c","balance":600}] 
+2020-06-04T14:28:33.516Z [my-bank-api] info: GET/account/ - Pesquisa all
+2020-06-04T14:28:44.793Z [my-bank-api] info: Online
+2020-06-04T14:58:58.990Z [my-bank-api] info: Online
+2020-06-04T14:59:05.812Z [my-bank-api] info: DELETE/account/:id - Usuario deletado 3
+2020-06-04T14:59:27.611Z [my-bank-api] info: Online
+2020-06-04T15:27:33.670Z [my-bank-api] info: Online
+2020-06-04T15:27:35.560Z [my-bank-api] info: Online
+2020-06-04T15:28:12.708Z [my-bank-api] info: Online
+2020-06-04T15:28:16.660Z [my-bank-api] info: GET/account/ - Pesquisa all
+2020-06-04T15:29:02.423Z [my-bank-api] info: Online
